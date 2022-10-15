@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -48,68 +47,146 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
+      backgroundColor: const Color(0xFF8CDC72),
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+        title: const Center(
+            child: Text("Перша лаба")
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+          const Padding(
+            padding: EdgeInsets.all(5.0),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(padding: EdgeInsets.all(3.0)),
+              Image.asset(
+                'assets/me.JPG',
+                width: 150,
+                height: 150,
+              ),
+              const Padding(padding: EdgeInsets.all(3.0)),
+              Container(
+                width: 245,
+                height: 150,
+                padding: const EdgeInsets.all(6.0),
+                decoration: const BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 6.0,
+                        spreadRadius: 2.0,
+                        offset: Offset(0.0, 0.0),
+                      )
+                    ]
+                ),
+                child: Column(
+                  children: [
+                    const Text(
+                      "About me: ",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 17,
+                      ),
+                    ),
+                    IntrinsicHeight(
+                      child: Row(
+                        children: [
+                          Expanded(child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text("Name: Oleksii"),
+                              Text("Surname: Slavich"),
+                              Text("Age: 22"),
+                              Text("City: Drogobych")
+                            ],
+                          )),
+                          const VerticalDivider(
+                            color: Colors.black,
+                            thickness: 2,
+                          ),
+                          Expanded(child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text("Email: alexseeko15@gmail.com"),
+                              Text("Phone: 0636308676"),
+                            ],
+                          ))
+                        ],
+                      ),
+                    ),
+                    const Padding(padding: EdgeInsets.all(3.0)),
+                    const Expanded(
+                        child: Text(
+                          "Steam: https://steamcommunity.com/id/lebowski666",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12
+                          ),
+                        )
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const Padding(padding: EdgeInsets.all(3.0)),
+          const Text(
+            "Hobby: ",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+          const Card(
+            child: ListTile(
+              leading: Image(image: AssetImage('assets/controller.jpg')),
+              title: Text("Video Games"),
+              subtitle: Text("DotA 2, Dark Souls, Overwatch,Witcher ,Hearthstone"),
+            ),
+          ),
+          const Card(
+            child: ListTile(
+              leading: Image(image: AssetImage('assets/film.jpg')),
+              title: Text("Anime"),
+              subtitle: Text("Serial Experiments Lain, Naruto, Made in abyss, Ergo Proxy"),
+            ),
+          ),
+          const Card(
+            child: ListTile(
+              leading: Image(image: AssetImage('assets/music.png'), width: 60, height: 50),
+              title: Text("Music"),
+              subtitle: Text("Indie, Post Punk, EDM"),
+            ),
+          ),
+          const Card(
+            child: ListTile(
+              leading: Image(image: AssetImage('assets/film.jpg')),
+              title: Text("Movies"),
+              subtitle: Text("Fight Club, Marvel/DC, Pulp Fiction, Filth"),
+            ),
+          ),
+          const Card(
+            child: ListTile(
+              leading: Image(image: AssetImage('assets/book.jpg'), width: 60, height: 60),
+              title: Text("Books"),
+              subtitle: Text("Clockwerk orange, Metro 2033, The Hitchhiker's Guide to the Galaxy"),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
