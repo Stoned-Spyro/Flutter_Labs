@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Layout Task',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Layout'),
     );
   }
 }
@@ -51,14 +51,55 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
 
-        title: Text(widget.title),
-      ),
-      body: Center(
+          leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.account_circle),
+            color: Colors.black,
+          ),
+          actions: navBar(),
+        ),
 
+        body: Container(
+          child: SafeArea(
+              child: Column(
+                children: [
+                  const Text("sada"),
 
-      ),
+                ],
+              )
+          ),
+        )
     );
   }
+
+
+
+  List<Widget> navBar(){
+    return <Widget>[
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.add_a_photo),
+        color: Colors.black,
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.add_chart),
+        color: Colors.black,
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.comment),
+        color: Colors.black,
+      ),
+      IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.search),
+        color: Colors.black,
+      ),
+    ];
+  }
 }
+
