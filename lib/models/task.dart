@@ -1,3 +1,4 @@
+import 'package:flutter_labs/models/worker.dart';
 import 'package:hive/hive.dart';
 
 part 'task.g.dart';
@@ -8,10 +9,12 @@ class Task extends HiveObject{
   @HiveField(0)
   String description;
   @HiveField(1)
-  bool isDone;
+  bool isAssigned;
+  @HiveField(2)
+  HiveList<Worker>? assignedToWorkers;
 
   Task({
     required this.description,
-    this.isDone = false,
+    this.isAssigned = false,
   });
 }

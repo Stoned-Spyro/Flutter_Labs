@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_labs/utils/add_task_form.dart';
 
-import '../utils/add_worker_form.dart';
-
-class AddScreen extends StatelessWidget {
+class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Add Info'),
+        title: const Text('Add Task'),
       ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),
-        child: AddWorkerForm(),
+        child: AddTaskForm(),
       ),
     );
   }

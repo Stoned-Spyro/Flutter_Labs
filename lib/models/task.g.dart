@@ -18,18 +18,20 @@ class TaskAdapter extends TypeAdapter<Task> {
     };
     return Task(
       description: fields[0] as String,
-      isDone: fields[1] as bool,
-    );
+      isAssigned: fields[1] as bool,
+    )..assignedToWorkers = (fields[2] as HiveList?)?.castHiveList();
   }
 
   @override
   void write(BinaryWriter writer, Task obj) {
     writer
-      ..writeByte(2)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.description)
       ..writeByte(1)
-      ..write(obj.isDone);
+      ..write(obj.isAssigned)
+      ..writeByte(2)
+      ..write(obj.assignedToWorkers);
   }
 
   @override
